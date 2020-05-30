@@ -90,7 +90,7 @@ public class DefaultProfileService implements ProfileService {
 
     @Override
     public Profile update(String username, Profile profile) {
-        get(username);
+        profile = get(username);
         //Perform check to ensure specified username is the username of the specified profile
         if (!profile.getUsername().equals(username)) {
             throw new UsernameProfileIntegrityViolationException(username, profile);

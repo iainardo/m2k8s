@@ -21,9 +21,9 @@ import java.io.File;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-
 import static org.assertj.core.api.Assertions.assertThat;
-@Disabled // TODO Revisit this later
+
+@Disabled // TODO Made a start on a basic integration test..to finish this later..Disabled for now
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 @Tag("integration")
 public class ProfileIntegrationTests {
@@ -90,7 +90,6 @@ public class ProfileIntegrationTests {
     }
 
     @Test
-    @Disabled
     public void testUploadUserProfileAvatar() {
         String username = "unamerkel";
         File ghost = ResourceReaderUtil.getFile("ghost.jpg");
