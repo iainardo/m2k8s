@@ -1,0 +1,25 @@
+management:
+  endpoints:
+    enabled-by-default: true
+    web:
+      exposure:
+        include: mappings
+
+spring:
+  servlet:
+    multipart:
+      max-file-size: 2MB
+      max-request-size: 10MB
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/profiles
+    username: empuser
+    password: password
+  jpa:
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: update
+        show_sql: true
+        format_sql: true
+        dialect: "org.hibernate.dialect.MySQL57Dialect"
