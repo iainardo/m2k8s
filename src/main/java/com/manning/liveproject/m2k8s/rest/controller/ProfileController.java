@@ -32,7 +32,6 @@ public class ProfileController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ProfileController.class);
 
-
     @Autowired
     private DefaultProfileService defaultProfileService;
 

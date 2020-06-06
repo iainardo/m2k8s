@@ -16,13 +16,17 @@
     </appender>
 
     <logger name="liveproject.m2k8s.web" level="DEBUG">
-        <appender-ref ref="SQLLOG"/>
+        <appender-ref ref="STDOUT"/>
     </logger>
     <logger name="org.hibernate.type" level="ALL">
-        <appender-ref ref="SQLLOG"/>
+        <appender-ref ref="STDOUT"/>
     </logger>
     <logger name="org.hibernate" level="DEBUG">
-        <appender-ref ref="SQLLOG"/>
+        <appender-ref ref="STDOUT"/>
+    </logger>
+
+    <logger name="com.zaxxer.hikari.pool" level="DEBUG">
+        <appender-ref ref="STDOUT"/>
     </logger>
 
     <root level="info">

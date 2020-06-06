@@ -22,6 +22,9 @@
         <equalsverifier.version>3.3</equalsverifier.version>
         <db.user>empuser</db.user>
         <db.password>password</db.password>
+        <spring-boot.build-image.imageName>iainardo/m2k8s:${project.version}</spring-boot.build-image.imageName>
+        <flyway-core.version>6.4.3</flyway-core.version>
+        <flyway.baseline-on-migrate>true</flyway.baseline-on-migrate>
     </properties>
 
     <dependencies>
@@ -101,16 +104,15 @@
             <version>${commons-fileupload.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-core</artifactId>
+            <version>${flyway-core.version}</version>
+        </dependency>
+
     </dependencies>
 
     <build>
-        <resources>
-            <resource>
-                <directory>src/main/resources</directory>
-                <filtering>true</filtering>
-            </resource>
-        </resources>
-
         <plugins>
 
             <plugin>
@@ -169,6 +171,20 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+
+            <plugin>
+                <groupId>org.flywaydb</groupId>
+                <artifactId>flyway-maven-plugin</artifactId>
+                <version>4.0.3</version>
+                <configuration>
+                    <user>${db.user}</user>
+                    <password>${db.password}</password>
+                    <schemas>
+                        <schema>profiles</schema>
+                    </schemas>
+                </configuration>
+
             </plugin>
 
         </plugins>
